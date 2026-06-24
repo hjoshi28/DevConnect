@@ -158,69 +158,69 @@ const Profile = () => {
     setActiveModal(type);
   };
 
-  if (loading) return <div className="text-center py-20 text-gray-400">Loading profile...</div>;
+  if (loading) return <div className="text-center py-20 text-slate-500">Loading profile...</div>;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl relative">
       
       {/* Modals */}
       {activeModal && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-surface border border-gray-800 rounded-2xl p-6 w-full max-w-lg">
-            <h2 className="text-2xl font-bold text-white mb-4 capitalize">
+        <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 w-full max-w-lg shadow-xl">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4 capitalize">
               {activeModal === 'edit' ? 'Edit Profile' : activeModal === 'company' ? 'Edit Company Info' : `Add ${activeModal}`}
             </h2>
             <form onSubmit={handleModalSubmit} className="space-y-4">
               
               {activeModal === 'edit' && (
                 <>
-                  <input required placeholder="Bio" value={formData.bio || ''} onChange={e => setFormData({...formData, bio: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
-                  <input placeholder="Location" value={formData.location || ''} onChange={e => setFormData({...formData, location: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
-                  <input placeholder="College/University" value={formData.college || ''} onChange={e => setFormData({...formData, college: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
+                  <input required placeholder="Bio" value={formData.bio || ''} onChange={e => setFormData({...formData, bio: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
+                  <input placeholder="Location" value={formData.location || ''} onChange={e => setFormData({...formData, location: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
+                  <input placeholder="College/University" value={formData.college || ''} onChange={e => setFormData({...formData, college: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
                 </>
               )}
 
               {activeModal === 'company' && (
                 <>
-                  <input required placeholder="Company Name" value={formData.companyName || ''} onChange={e => setFormData({...formData, companyName: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
-                  <input placeholder="Company Website (e.g. https://example.com)" value={formData.companyWebsite || ''} onChange={e => setFormData({...formData, companyWebsite: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
-                  <textarea placeholder="Company Description" value={formData.companyDescription || ''} onChange={e => setFormData({...formData, companyDescription: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" rows="3"></textarea>
+                  <input required placeholder="Company Name" value={formData.companyName || ''} onChange={e => setFormData({...formData, companyName: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
+                  <input placeholder="Company Website (e.g. https://example.com)" value={formData.companyWebsite || ''} onChange={e => setFormData({...formData, companyWebsite: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
+                  <textarea placeholder="Company Description" value={formData.companyDescription || ''} onChange={e => setFormData({...formData, companyDescription: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" rows="3"></textarea>
                 </>
               )}
 
               {activeModal === 'skill' && (
-                <input required placeholder="e.g. React, Python, AWS" value={formData.skill || ''} onChange={e => setFormData({...formData, skill: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
+                <input required placeholder="e.g. React, Python, AWS" value={formData.skill || ''} onChange={e => setFormData({...formData, skill: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
               )}
 
               {activeModal === 'education' && (
                 <>
-                  <input required placeholder="School/University" value={formData.school || ''} onChange={e => setFormData({...formData, school: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
-                  <input required placeholder="Degree (e.g. B.Tech)" value={formData.degree || ''} onChange={e => setFormData({...formData, degree: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
-                  <input required placeholder="Field of Study (e.g. Computer Science)" value={formData.fieldOfStudy || ''} onChange={e => setFormData({...formData, fieldOfStudy: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
+                  <input required placeholder="School/University" value={formData.school || ''} onChange={e => setFormData({...formData, school: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
+                  <input required placeholder="Degree (e.g. B.Tech)" value={formData.degree || ''} onChange={e => setFormData({...formData, degree: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
+                  <input required placeholder="Field of Study (e.g. Computer Science)" value={formData.fieldOfStudy || ''} onChange={e => setFormData({...formData, fieldOfStudy: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
                   <div className="flex gap-4">
-                    <input required type="date" value={formData.from || ''} onChange={e => setFormData({...formData, from: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
-                    <input type="date" value={formData.to || ''} onChange={e => setFormData({...formData, to: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
+                    <input required type="date" value={formData.from || ''} onChange={e => setFormData({...formData, from: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
+                    <input type="date" value={formData.to || ''} onChange={e => setFormData({...formData, to: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
                   </div>
-                  <p className="text-xs text-gray-500">Leave end date blank if currently attending</p>
+                  <p className="text-xs text-slate-500">Leave end date blank if currently attending</p>
                 </>
               )}
 
               {activeModal === 'experience' && (
                 <>
-                  <input required placeholder="Company" value={formData.company || ''} onChange={e => setFormData({...formData, company: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
-                  <input required placeholder="Job Title" value={formData.title || ''} onChange={e => setFormData({...formData, title: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
-                  <textarea required placeholder="Description of what you did..." value={formData.description || ''} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" rows="3"></textarea>
+                  <input required placeholder="Company" value={formData.company || ''} onChange={e => setFormData({...formData, company: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
+                  <input required placeholder="Job Title" value={formData.title || ''} onChange={e => setFormData({...formData, title: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
+                  <textarea required placeholder="Description of what you did..." value={formData.description || ''} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" rows="3"></textarea>
                   <div className="flex gap-4">
-                    <input required type="date" value={formData.from || ''} onChange={e => setFormData({...formData, from: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
-                    <input type="date" value={formData.to || ''} onChange={e => setFormData({...formData, to: e.target.value})} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white" />
+                    <input required type="date" value={formData.from || ''} onChange={e => setFormData({...formData, from: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
+                    <input type="date" value={formData.to || ''} onChange={e => setFormData({...formData, to: e.target.value})} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
                   </div>
-                  <p className="text-xs text-gray-500">Leave end date blank if currently working here</p>
+                  <p className="text-xs text-slate-500">Leave end date blank if currently working here</p>
                 </>
               )}
 
               <div className="flex justify-end gap-3 pt-4">
-                <button type="button" onClick={() => setActiveModal(null)} className="px-4 py-2 text-gray-400 hover:text-white">Cancel</button>
-                <button type="submit" disabled={isSubmitting} className="bg-primary hover:bg-blue-600 text-white px-6 py-2 rounded-lg disabled:opacity-50">
+                <button type="button" onClick={() => setActiveModal(null)} className="px-4 py-2 text-slate-500 hover:text-slate-700">Cancel</button>
+                <button type="submit" disabled={isSubmitting} className="bg-primary hover:bg-blue-800 text-white px-6 py-2 rounded-lg disabled:bg-slate-300 shadow-sm hover:shadow-md transition-all">
                   Save
                 </button>
               </div>
@@ -230,22 +230,22 @@ const Profile = () => {
       )}
 
       {/* Header Section */}
-      <div className="bg-surface rounded-2xl p-8 border border-gray-800 shadow-xl mb-6 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-r from-blue-900/40 to-purple-900/40"></div>
+      <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-r from-blue-100 to-purple-100"></div>
         <div className="relative flex flex-col md:flex-row items-center md:items-end gap-6 mt-12">
-          <div className="w-32 h-32 rounded-full border-4 border-surface bg-gray-800 overflow-hidden shrink-0">
+          <div className="w-32 h-32 rounded-full border-4 border-white bg-slate-100 overflow-hidden shrink-0 shadow-md">
             {user?.avatar ? (
               <img src={user.avatar} alt="Profile" className="w-full h-full object-cover" />
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-4xl text-gray-500 font-bold">
+              <div className="w-full h-full flex items-center justify-center text-4xl text-slate-400 font-bold">
                 {user?.name?.charAt(0)}
               </div>
             )}
           </div>
           <div className="flex-1 text-center md:text-left">
-            <h1 className="text-3xl font-bold text-white">{user?.name}</h1>
+            <h1 className="text-3xl font-bold text-slate-900">{user?.name}</h1>
             <p className="text-primary font-medium mt-1">{profile?.bio || 'Add a bio to introduce yourself'}</p>
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mt-4 text-sm text-gray-400">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mt-4 text-sm text-slate-500">
               {profile?.location && (
                 <span className="flex items-center gap-1"><MapPin className="w-4 h-4" /> {profile.location}</span>
               )}
@@ -263,7 +263,7 @@ const Profile = () => {
               )}
             </div>
           </div>
-          <button onClick={() => openModal(user?.role === 'recruiter' ? 'company' : 'edit')} className="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium border border-gray-700 transition-colors">
+          <button onClick={() => openModal(user?.role === 'recruiter' ? 'company' : 'edit')} className="bg-white hover:bg-slate-50 text-slate-700 px-4 py-2 rounded-lg font-medium border border-slate-200 transition-all shadow-sm">
             Edit {user?.role === 'recruiter' ? 'Company Info' : 'Profile'}
           </button>
         </div>
@@ -273,12 +273,12 @@ const Profile = () => {
         
         {user?.role === 'recruiter' ? (
           <div className="lg:col-span-3 space-y-6">
-            <div className="bg-surface rounded-xl p-6 border border-gray-800">
+            <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-bold text-white flex items-center gap-2"><Briefcase className="w-5 h-5 text-purple-400" /> About {profile?.companyName || 'Company'}</h2>
-                <button onClick={() => openModal('company')} className="text-gray-400 hover:text-white"><Edit2 className="w-5 h-5" /></button>
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2"><Briefcase className="w-5 h-5 text-purple-600" /> About {profile?.companyName || 'Company'}</h2>
+                <button onClick={() => openModal('company')} className="text-slate-400 hover:text-primary"><Edit2 className="w-5 h-5" /></button>
               </div>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-slate-700 leading-relaxed">
                 {profile?.companyDescription || 'Please add a description of your company.'}
               </p>
             </div>
@@ -288,50 +288,50 @@ const Profile = () => {
             {/* Left Column (Developer View) */}
             <div className="space-y-6 lg:col-span-1">
               {/* Skills */}
-              <div className="bg-surface rounded-xl p-6 border border-gray-800">
+              <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
                 <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-xl font-bold text-white flex items-center gap-2"><Code className="w-5 h-5 text-blue-400" /> Skills</h2>
-                  <button onClick={() => openModal('skill')} className="text-gray-400 hover:text-white"><Plus className="w-5 h-5" /></button>
+                  <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2"><Code className="w-5 h-5 text-blue-600" /> Skills</h2>
+                  <button onClick={() => openModal('skill')} className="text-slate-400 hover:text-primary"><Plus className="w-5 h-5" /></button>
                 </div>
                 {profile?.skills?.languages?.length > 0 ? (
                   <div className="flex flex-wrap gap-2">
                     {profile.skills.languages.map((skill, i) => (
-                      <span key={i} className="relative group px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm border border-gray-700 flex items-center cursor-pointer">
+                      <span key={i} className="relative group px-3 py-1 bg-slate-50 text-slate-700 rounded-full text-sm border border-slate-200 flex items-center cursor-pointer hover:bg-slate-100 font-medium transition-colors">
                         {skill}
-                        <div className="absolute -top-4 -right-2 hidden group-hover:flex items-center gap-2 bg-gray-900 px-2 py-1 rounded-md border border-gray-700 shadow-xl z-10">
-                          <button onClick={(e) => { e.stopPropagation(); openModal('skill', i); }} className="text-gray-400 hover:text-white"><Edit2 className="w-3 h-3" /></button>
-                          <button onClick={(e) => { e.stopPropagation(); handleDelete('skill', i); }} className="text-red-400 hover:text-red-300"><Trash2 className="w-3 h-3" /></button>
+                        <div className="absolute -top-4 -right-2 hidden group-hover:flex items-center gap-2 bg-white px-2 py-1 rounded-md border border-slate-200 shadow-xl z-10">
+                          <button onClick={(e) => { e.stopPropagation(); openModal('skill', i); }} className="text-slate-400 hover:text-primary"><Edit2 className="w-3 h-3" /></button>
+                          <button onClick={(e) => { e.stopPropagation(); handleDelete('skill', i); }} className="text-red-500 hover:text-red-600"><Trash2 className="w-3 h-3" /></button>
                         </div>
                       </span>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-sm text-gray-500">No skills added yet.</p>
+                  <p className="text-sm text-slate-500">No skills added yet.</p>
                 )}
               </div>
 
               {/* Education */}
-              <div className="bg-surface rounded-xl p-6 border border-gray-800">
+              <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
                 <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-xl font-bold text-white flex items-center gap-2"><GraduationCap className="w-5 h-5 text-emerald-400" /> Education</h2>
-                  <button onClick={() => openModal('education')} className="text-gray-400 hover:text-white"><Plus className="w-5 h-5" /></button>
+                  <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2"><GraduationCap className="w-5 h-5 text-emerald-600" /> Education</h2>
+                  <button onClick={() => openModal('education')} className="text-slate-400 hover:text-primary"><Plus className="w-5 h-5" /></button>
                 </div>
                 {profile?.education?.length > 0 ? (
                   <div className="space-y-4">
                     {profile.education.map((edu, i) => (
-                      <div key={i} className="group border-l-2 border-gray-800 pl-4 py-1 relative">
+                      <div key={i} className="group border-l-2 border-slate-200 pl-4 py-1 relative">
                         <div className="absolute right-0 top-0 hidden group-hover:flex gap-2">
-                          <button onClick={() => openModal('education', i)} className="text-gray-400 hover:text-white"><Edit2 className="w-4 h-4" /></button>
-                          <button onClick={() => handleDelete('education', i)} className="text-red-400 hover:text-red-300"><Trash2 className="w-4 h-4" /></button>
+                          <button onClick={() => openModal('education', i)} className="text-slate-400 hover:text-primary"><Edit2 className="w-4 h-4" /></button>
+                          <button onClick={() => handleDelete('education', i)} className="text-red-500 hover:text-red-600"><Trash2 className="w-4 h-4" /></button>
                         </div>
-                        <h3 className="font-bold text-gray-200">{edu.school}</h3>
-                        <p className="text-sm text-gray-400">{edu.degree} in {edu.fieldOfStudy}</p>
-                        <p className="text-xs text-gray-500 mt-1">{new Date(edu.from).getFullYear()} - {edu.current ? 'Present' : new Date(edu.to).getFullYear()}</p>
+                        <h3 className="font-bold text-slate-900">{edu.school}</h3>
+                        <p className="text-sm text-slate-700">{edu.degree} in {edu.fieldOfStudy}</p>
+                        <p className="text-xs text-slate-500 mt-1">{new Date(edu.from).getFullYear()} - {edu.current ? 'Present' : new Date(edu.to).getFullYear()}</p>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-sm text-gray-500">No education added yet.</p>
+                  <p className="text-sm text-slate-500">No education added yet.</p>
                 )}
               </div>
             </div>
@@ -342,17 +342,17 @@ const Profile = () => {
           {user?.role !== 'recruiter' && (
             <>
               {/* Integrations */}
-              <div className="bg-surface rounded-xl p-6 border border-gray-800">
-            <h2 className="text-xl font-bold text-white flex items-center gap-2 mb-6"><ExternalLink className="w-5 h-5 text-indigo-400" /> Integrations</h2>
+              <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+            <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2 mb-6"><ExternalLink className="w-5 h-5 text-indigo-600" /> Integrations</h2>
 
             <div className="space-y-4">
               {/* GitHub */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-gray-900 rounded-lg border border-gray-800 gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-slate-50 rounded-lg border border-slate-200 gap-4">
                 <div className="flex items-center gap-3">
-                  <GitBranch className="w-8 h-8 text-white" />
+                  <GitBranch className="w-8 h-8 text-slate-800" />
                   <div>
-                    <h3 className="font-bold text-white">GitHub</h3>
-                    <p className="text-sm text-gray-400">{profile?.githubUsername ? `Connected as ${profile.githubUsername}` : 'Not connected'}</p>
+                    <h3 className="font-bold text-slate-900">GitHub</h3>
+                    <p className="text-sm text-slate-500">{profile?.githubUsername ? `Connected as ${profile.githubUsername}` : 'Not connected'}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -362,13 +362,13 @@ const Profile = () => {
                       placeholder="Username"
                       value={githubInput}
                       onChange={(e) => setGithubInput(e.target.value)}
-                      className="px-3 py-1.5 bg-gray-800 border border-gray-700 rounded-md text-white text-sm outline-none focus:border-primary w-32"
+                      className="px-3 py-1.5 bg-white border border-slate-300 rounded-md text-slate-900 text-sm outline-none focus:ring-2 focus:ring-primary shadow-sm w-32"
                     />
                   )}
                   <button
                     onClick={handleSyncGithub}
                     disabled={syncingGithub || (!profile?.githubUsername && !githubInput)}
-                    className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-md text-sm border border-gray-700 disabled:opacity-50"
+                    className="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-3 py-1.5 rounded-md text-sm border border-slate-300 disabled:bg-slate-100 disabled:text-slate-400 shadow-sm transition-all"
                   >
                     <RefreshCw className={`w-4 h-4 ${syncingGithub ? 'animate-spin' : ''}`} />
                     {profile?.githubUsername ? 'Sync' : 'Connect'}
@@ -377,12 +377,12 @@ const Profile = () => {
               </div>
 
               {/* LeetCode */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-gray-900 rounded-lg border border-gray-800 gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-slate-50 rounded-lg border border-slate-200 gap-4">
                 <div className="flex items-center gap-3">
-                  <Code className="w-8 h-8 text-yellow-500" />
+                  <Code className="w-8 h-8 text-yellow-600" />
                   <div>
-                    <h3 className="font-bold text-white">LeetCode</h3>
-                    <p className="text-sm text-gray-400">{profile?.leetcodeUsername ? `Connected as ${profile.leetcodeUsername}` : 'Not connected'}</p>
+                    <h3 className="font-bold text-slate-900">LeetCode</h3>
+                    <p className="text-sm text-slate-500">{profile?.leetcodeUsername ? `Connected as ${profile.leetcodeUsername}` : 'Not connected'}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -392,13 +392,13 @@ const Profile = () => {
                       placeholder="Username"
                       value={leetcodeInput}
                       onChange={(e) => setLeetcodeInput(e.target.value)}
-                      className="px-3 py-1.5 bg-gray-800 border border-gray-700 rounded-md text-white text-sm outline-none focus:border-primary w-32"
+                      className="px-3 py-1.5 bg-white border border-slate-300 rounded-md text-slate-900 text-sm outline-none focus:ring-2 focus:ring-primary shadow-sm w-32"
                     />
                   )}
                   <button
                     onClick={handleSyncLeetCode}
                     disabled={syncingLeetCode || (!profile?.leetcodeUsername && !leetcodeInput)}
-                    className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-md text-sm border border-gray-700 disabled:opacity-50"
+                    className="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-3 py-1.5 rounded-md text-sm border border-slate-300 disabled:bg-slate-100 disabled:text-slate-400 shadow-sm transition-all"
                   >
                     <RefreshCw className={`w-4 h-4 ${syncingLeetCode ? 'animate-spin' : ''}`} />
                     {profile?.leetcodeUsername ? 'Sync' : 'Connect'}
@@ -411,28 +411,28 @@ const Profile = () => {
           )}
 
           {/* Experience */}
-          <div className="bg-surface rounded-xl p-6 border border-gray-800">
+          <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2"><Briefcase className="w-5 h-5 text-purple-400" /> Experience</h2>
-              <button onClick={() => openModal('experience')} className="text-gray-400 hover:text-white"><Plus className="w-5 h-5" /></button>
+              <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2"><Briefcase className="w-5 h-5 text-purple-600" /> Experience</h2>
+              <button onClick={() => openModal('experience')} className="text-slate-400 hover:text-primary"><Plus className="w-5 h-5" /></button>
             </div>
             {profile?.experience?.length > 0 ? (
               <div className="space-y-6">
                 {profile.experience.map((exp, i) => (
                   <div key={i} className="group relative">
                     <div className="absolute right-0 top-0 hidden group-hover:flex gap-2">
-                      <button onClick={() => openModal('experience', i)} className="text-gray-400 hover:text-white"><Edit2 className="w-4 h-4" /></button>
-                      <button onClick={() => handleDelete('experience', i)} className="text-red-400 hover:text-red-300"><Trash2 className="w-4 h-4" /></button>
+                      <button onClick={() => openModal('experience', i)} className="text-slate-400 hover:text-primary"><Edit2 className="w-4 h-4" /></button>
+                      <button onClick={() => handleDelete('experience', i)} className="text-red-500 hover:text-red-600"><Trash2 className="w-4 h-4" /></button>
                     </div>
-                    <h3 className="font-bold text-lg text-white">{exp.title}</h3>
+                    <h3 className="font-bold text-lg text-slate-900">{exp.title}</h3>
                     <p className="text-primary font-medium">{exp.company}</p>
-                    <p className="text-xs text-gray-500 mb-2">{new Date(exp.from).toLocaleDateString()} - {exp.current ? 'Present' : new Date(exp.to).toLocaleDateString()}</p>
-                    <p className="text-sm text-gray-400">{exp.description}</p>
+                    <p className="text-xs text-slate-500 mb-2">{new Date(exp.from).toLocaleDateString()} - {exp.current ? 'Present' : new Date(exp.to).toLocaleDateString()}</p>
+                    <p className="text-sm text-slate-700">{exp.description}</p>
                   </div>
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-gray-500">No experience added yet.</p>
+              <p className="text-sm text-slate-500">No experience added yet.</p>
             )}
             </div>
             </div>

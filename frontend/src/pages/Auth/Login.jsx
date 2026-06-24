@@ -38,18 +38,18 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center min-h-[80vh] px-4">
-      <div className="w-full max-w-md p-8 space-y-8 bg-surface rounded-2xl border border-gray-800 shadow-xl">
+      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-2xl border border-slate-200 shadow-xl">
         <div className="text-center">
-          <h2 className="mt-6 text-3xl font-extrabold text-white">
+          <h2 className="mt-6 text-3xl font-extrabold text-slate-900">
             Welcome back
           </h2>
-          <p className="mt-2 text-sm text-gray-400">
+          <p className="mt-2 text-sm text-slate-500">
             Sign in to access your placement intelligence dashboard
           </p>
         </div>
 
         {error && (
-          <div className="bg-red-900/50 border border-red-500 text-red-200 p-3 rounded-lg flex items-center gap-2 text-sm">
+          <div className="bg-red-50 border border-red-200 text-red-600 p-3 rounded-lg flex items-center gap-2 text-sm">
             <AlertCircle className="w-5 h-5 flex-shrink-0" />
             <p>{error}</p>
           </div>
@@ -58,10 +58,10 @@ const Login = () => {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div>
-              <label className="text-sm font-medium text-gray-300 block mb-2">Email address</label>
+              <label className="text-sm font-medium text-slate-700 block mb-2">Email address</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Mail className="h-5 w-5 text-gray-500" />
+                  <Mail className="h-5 w-5 text-slate-400" />
                 </div>
                 <input
                   name="email"
@@ -69,17 +69,17 @@ const Login = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="appearance-none block w-full pl-10 px-3 py-2 border border-gray-700 bg-gray-900 rounded-lg placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent sm:text-sm transition-all"
+                  className="appearance-none block w-full pl-10 px-3 py-2 border border-slate-300 bg-white rounded-lg placeholder-slate-400 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent sm:text-sm transition-all shadow-sm"
                   placeholder="you@example.com"
                 />
               </div>
             </div>
 
             <div>
-              <label className="text-sm font-medium text-gray-300 block mb-2">Password</label>
+              <label className="text-sm font-medium text-slate-700 block mb-2">Password</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-gray-500" />
+                  <Lock className="h-5 w-5 text-slate-400" />
                 </div>
                 <input
                   name="password"
@@ -87,7 +87,7 @@ const Login = () => {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="appearance-none block w-full pl-10 px-3 py-2 border border-gray-700 bg-gray-900 rounded-lg placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent sm:text-sm transition-all"
+                  className="appearance-none block w-full pl-10 px-3 py-2 border border-slate-300 bg-white rounded-lg placeholder-slate-400 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent sm:text-sm transition-all shadow-sm"
                   placeholder="••••••••"
                 />
               </div>
@@ -100,15 +100,15 @@ const Login = () => {
                 id="remember-me"
                 name="remember-me"
                 type="checkbox"
-                className="h-4 w-4 text-primary focus:ring-primary border-gray-700 bg-gray-900 rounded"
+                className="h-4 w-4 text-primary focus:ring-primary border-slate-300 bg-white rounded"
               />
-              <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-300">
+              <label htmlFor="remember-me" className="ml-2 block text-sm text-slate-600">
                 Remember me
               </label>
             </div>
 
             <div className="text-sm">
-              <a href="#" className="font-medium text-primary hover:text-blue-400">
+              <a href="#" className="font-medium text-primary hover:text-blue-800">
                 Forgot your password?
               </a>
             </div>
@@ -118,10 +118,10 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-2.5 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-surface focus:ring-primary transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group relative w-full flex justify-center py-2.5 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-primary transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
             >
               <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                <LogIn className="h-5 w-5 text-blue-300 group-hover:text-blue-200" />
+                <LogIn className="h-5 w-5 text-blue-200 group-hover:text-white" />
               </span>
               {loading ? 'Signing in...' : 'Sign in'}
             </button>
@@ -129,9 +129,9 @@ const Login = () => {
 
         </form>
 
-        <p className="text-center text-sm text-gray-400">
+        <p className="text-center text-sm text-slate-500">
           Don't have an account?{' '}
-          <Link to="/register" className="font-medium text-primary hover:text-blue-400">
+          <Link to="/register" className="font-medium text-primary hover:text-blue-800">
             Sign up
           </Link>
         </p>

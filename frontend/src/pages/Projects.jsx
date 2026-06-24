@@ -77,19 +77,19 @@ const Projects = () => {
     }
   };
 
-  if (loading) return <div className="text-center py-20 text-gray-400">Loading projects...</div>;
+  if (loading) return <div className="text-center py-20 text-slate-500">Loading projects...</div>;
 
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-white">Project Showcase</h1>
-          <p className="text-gray-400 mt-1">Discover top projects built by developers in the community.</p>
+          <h1 className="text-3xl font-bold text-slate-900">Project Showcase</h1>
+          <p className="text-slate-500 mt-1">Discover top projects built by developers in the community.</p>
         </div>
         {user && (
           <button
             onClick={() => setIsModalOpen(true)}
-            className="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2"
+            className="bg-primary hover:bg-blue-800 text-white px-4 py-2 rounded-lg font-medium transition-all flex items-center gap-2 shadow-md hover:shadow-lg"
           >
             <Plus className="w-5 h-5" /> Add Project
           </button>
@@ -98,45 +98,45 @@ const Projects = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-surface border border-gray-800 rounded-2xl p-6 w-full max-w-xl max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 w-full max-w-xl max-h-[90vh] overflow-y-auto shadow-xl">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-white">Add New Project</h2>
-              <button onClick={() => setIsModalOpen(false)} className="text-gray-400 hover:text-white">
+              <h2 className="text-2xl font-bold text-slate-900">Add New Project</h2>
+              <button onClick={() => setIsModalOpen(false)} className="text-slate-400 hover:text-slate-600 transition-colors">
                 <X className="w-6 h-6" />
               </button>
             </div>
 
             <form onSubmit={handleAddProject} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-1">Project Title*</label>
-                <input required type="text" name="title" value={formData.title} onChange={handleInputChange} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary" />
+                <label className="block text-sm font-medium text-slate-700 mb-1">Project Title*</label>
+                <input required type="text" name="title" value={formData.title} onChange={handleInputChange} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm" />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-1">Description*</label>
-                <textarea required rows="3" name="description" value={formData.description} onChange={handleInputChange} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary"></textarea>
+                <label className="block text-sm font-medium text-slate-700 mb-1">Description*</label>
+                <textarea required rows="3" name="description" value={formData.description} onChange={handleInputChange} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm"></textarea>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-1">Tech Stack (comma separated)*</label>
-                <input required type="text" name="techStack" value={formData.techStack} onChange={handleInputChange} placeholder="React, Node.js, MongoDB" className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary" />
+                <label className="block text-sm font-medium text-slate-700 mb-1">Tech Stack (comma separated)*</label>
+                <input required type="text" name="techStack" value={formData.techStack} onChange={handleInputChange} placeholder="React, Node.js, MongoDB" className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm" />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-1">GitHub Link</label>
-                  <input type="url" name="githubLink" value={formData.githubLink} onChange={handleInputChange} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary" />
+                  <label className="block text-sm font-medium text-slate-700 mb-1">GitHub Link</label>
+                  <input type="url" name="githubLink" value={formData.githubLink} onChange={handleInputChange} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-1">Live Demo Link</label>
-                  <input type="url" name="liveDemoLink" value={formData.liveDemoLink} onChange={handleInputChange} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary" />
+                  <label className="block text-sm font-medium text-slate-700 mb-1">Live Demo Link</label>
+                  <input type="url" name="liveDemoLink" value={formData.liveDemoLink} onChange={handleInputChange} className="w-full bg-white border border-slate-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm" />
                 </div>
               </div>
 
               <div className="pt-4 flex justify-end gap-3">
-                <button type="button" onClick={() => setIsModalOpen(false)} className="px-4 py-2 text-gray-300 hover:text-white font-medium">Cancel</button>
-                <button type="submit" disabled={isSubmitting} className="bg-primary hover:bg-blue-600 disabled:bg-gray-800 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                <button type="button" onClick={() => setIsModalOpen(false)} className="px-4 py-2 text-slate-500 hover:text-slate-700 font-medium">Cancel</button>
+                <button type="submit" disabled={isSubmitting} className="bg-primary hover:bg-blue-800 disabled:bg-slate-300 text-white px-6 py-2 rounded-lg font-medium transition-all shadow-sm hover:shadow-md">
                   {isSubmitting ? 'Publishing...' : 'Publish Project'}
                 </button>
               </div>
@@ -152,13 +152,13 @@ const Projects = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
             key={project._id}
-            className="bg-surface rounded-xl border border-gray-800 overflow-hidden flex flex-col hover:border-gray-700 transition-colors"
+            className="bg-white rounded-xl border border-slate-200 overflow-hidden flex flex-col hover:border-blue-300 hover:shadow-md shadow-sm transition-all"
           >
-            <div className="h-48 bg-gray-900 relative">
+            <div className="h-48 bg-slate-50 relative">
               {project.images && project.images.length > 0 ? (
                 <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover" />
               ) : (
-                <div className="w-full h-full flex items-center justify-center text-gray-700">
+                <div className="w-full h-full flex items-center justify-center text-slate-300">
                   <Code className="w-12 h-12" />
                 </div>
               )}
@@ -167,36 +167,36 @@ const Projects = () => {
               <div className="flex items-center gap-3 mb-4">
                 <Link to={`/profile/${project.user._id}`} className="shrink-0 hover:opacity-80 transition-opacity">
                   {project.user?.avatar ? (
-                    <img src={project.user.avatar} alt={project.user.name} className="w-10 h-10 rounded-full object-cover border border-gray-700" />
+                    <img src={project.user.avatar} alt={project.user.name} className="w-10 h-10 rounded-full object-cover border border-slate-200 shadow-sm" />
                   ) : (
-                    <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center font-bold text-gray-400 border border-gray-700">
+                    <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-500 border border-slate-200">
                       {project.user?.name?.charAt(0) || '?'}
                     </div>
                   )}
                 </Link>
                 <div>
-                  <Link to={`/profile/${project.user._id}`} className="hover:text-primary transition-colors">
-                    <h3 className="font-medium text-white">{project.user?.name}</h3>
+                  <Link to={`/profile/${project.user._id}`} className="hover:text-blue-800 transition-colors">
+                    <h3 className="font-medium text-slate-900">{project.user?.name}</h3>
                   </Link>
-                  <p className="text-xs text-gray-500">{new Date(project.createdAt).toLocaleDateString()}</p>
+                  <p className="text-xs text-slate-500">{new Date(project.createdAt).toLocaleDateString()}</p>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-              <p className="text-gray-400 text-sm line-clamp-3 mb-4 flex-1">{project.description}</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">{project.title}</h3>
+              <p className="text-slate-600 text-sm line-clamp-3 mb-4 flex-1">{project.description}</p>
 
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.techStack.map((tech, i) => (
-                  <span key={i} className="text-xs px-2 py-1 bg-gray-800 text-gray-300 rounded border border-gray-700">
+                  <span key={i} className="text-xs px-2 py-1 bg-slate-50 text-slate-700 rounded border border-slate-200 font-medium">
                     {tech}
                   </span>
                 ))}
               </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-gray-800 text-gray-400">
+              <div className="flex items-center justify-between pt-4 border-t border-slate-200 text-slate-500">
                 <div className="flex items-center gap-4">
                   <button 
                     onClick={() => handleLikeProject(project._id)}
-                    className={`flex items-center gap-1 transition-colors ${project.metrics?.likes?.includes(user?._id) ? 'text-yellow-500' : 'hover:text-yellow-400'}`}
+                    className={`flex items-center gap-1 transition-colors ${project.metrics?.likes?.includes(user?._id) ? 'text-yellow-500' : 'hover:text-yellow-500'}`}
                   >
                     <Star className={`w-4 h-4 ${project.metrics?.likes?.includes(user?._id) ? 'fill-yellow-500' : ''}`} /> 
                     <span className="text-sm">{project.metrics?.likes?.length || 0}</span>
@@ -207,12 +207,12 @@ const Projects = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   {project.githubLink && (
-                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                       <GitBranch className="w-5 h-5" />
                     </a>
                   )}
                   {project.liveDemoLink && (
-                    <a href={project.liveDemoLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    <a href={project.liveDemoLink} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                       <ExternalLink className="w-5 h-5" />
                     </a>
                   )}
@@ -221,7 +221,7 @@ const Projects = () => {
             </div>
           </motion.div>
         )) : (
-          <div className="col-span-full text-center py-20 text-gray-500">
+          <div className="col-span-full text-center py-20 text-slate-500">
             No projects found. Be the first to share your work!
           </div>
         )}

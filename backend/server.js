@@ -12,6 +12,8 @@ import integrationRoutes from './routes/integrationRoutes.js';
 import aiRoutes from './routes/aiRoutes.js';
 import messageRoutes from './routes/messageRoutes.js';
 import networkRoutes from './routes/networkRoutes.js';
+import jobRoutes from './routes/jobRoutes.js';
+import applicationRoutes from './routes/applicationRoutes.js';
 import Message from './models/Message.js';
 import Conversation from './models/Conversation.js';
 
@@ -44,6 +46,8 @@ app.use('/api/integrations', integrationRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api/network', networkRoutes);
+app.use('/api/jobs', jobRoutes);
+app.use('/api/applications', applicationRoutes);
 
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'Server is running' });

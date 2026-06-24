@@ -11,6 +11,9 @@ import Network from './pages/Network';
 import Chat from './pages/Chat';
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
+import Jobs from './pages/Jobs/Jobs';
+import JobDetails from './pages/Jobs/JobDetails';
+import MyApplications from './pages/Jobs/MyApplications';
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
             <Route path="/intelligence" element={<ProtectedRoute><Intelligence /></ProtectedRoute>} />
             <Route path="/network" element={<ProtectedRoute><Network /></ProtectedRoute>} />
             <Route path="/chat/:id" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
+            <Route path="/jobs" element={<ProtectedRoute><Jobs /></ProtectedRoute>} />
+            <Route path="/jobs/:id" element={<ProtectedRoute><JobDetails /></ProtectedRoute>} />
+            <Route path="/applications" element={<ProtectedRoute><MyApplications /></ProtectedRoute>} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>

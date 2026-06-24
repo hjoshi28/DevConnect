@@ -77,33 +77,33 @@ const Chat = () => {
     setText('');
   };
 
-  if (loading) return <div className="text-center py-20 text-gray-400">Loading chat...</div>;
+  if (loading) return <div className="text-center py-20 text-slate-500">Loading chat...</div>;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl h-[calc(100vh-80px)] flex flex-col">
       {/* Chat Header */}
-      <div className="bg-surface border border-gray-800 rounded-t-2xl p-4 flex items-center gap-4">
-        <button onClick={() => navigate(-1)} className="p-2 hover:bg-gray-800 rounded-full transition-colors text-gray-400 hover:text-white">
+      <div className="bg-white border border-slate-200 rounded-t-2xl p-4 flex items-center gap-4 shadow-sm z-10 relative">
+        <button onClick={() => navigate(-1)} className="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-500 hover:text-slate-900">
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div className="flex items-center gap-3">
           {otherUser?.avatar ? (
-            <img src={otherUser.avatar} alt="Avatar" className="w-10 h-10 rounded-full object-cover border border-gray-700" />
+            <img src={otherUser.avatar} alt="Avatar" className="w-10 h-10 rounded-full object-cover border border-slate-200 shadow-sm" />
           ) : (
-            <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center font-bold text-gray-400 border border-gray-700">
+            <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-500 border border-slate-200">
               {otherUser?.name?.charAt(0) || '?'}
             </div>
           )}
           <div>
-            <h2 className="font-bold text-white">{otherUser?.name || 'User'}</h2>
+            <h2 className="font-bold text-slate-900">{otherUser?.name || 'User'}</h2>
           </div>
         </div>
       </div>
 
       {/* Messages Area */}
-      <div className="flex-1 bg-gray-900 border-x border-gray-800 p-6 overflow-y-auto flex flex-col gap-4">
+      <div className="flex-1 bg-slate-50 border-x border-slate-200 p-6 overflow-y-auto flex flex-col gap-4">
         {messages.length === 0 ? (
-          <div className="flex-1 flex items-center justify-center text-gray-500 text-sm">
+          <div className="flex-1 flex items-center justify-center text-slate-400 text-sm">
             No messages yet. Start the conversation!
           </div>
         ) : (
@@ -111,9 +111,9 @@ const Chat = () => {
             const isMe = msg.sender === user._id;
             return (
               <div key={i} className={`flex ${isMe ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[70%] rounded-2xl px-4 py-2 ${isMe ? 'bg-primary text-white rounded-br-sm' : 'bg-gray-800 text-gray-200 rounded-bl-sm'}`}>
+                <div className={`max-w-[70%] rounded-2xl px-4 py-2 shadow-sm ${isMe ? 'bg-primary text-white rounded-br-sm' : 'bg-white text-slate-700 border border-slate-200 rounded-bl-sm'}`}>
                   <p className="text-sm">{msg.text}</p>
-                  <span className="text-[10px] opacity-60 mt-1 block text-right">
+                  <span className={`text-[10px] mt-1 block text-right ${isMe ? 'opacity-80 text-blue-100' : 'text-slate-400'}`}>
                     {new Date(msg.createdAt || Date.now()).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </span>
                 </div>
@@ -125,19 +125,19 @@ const Chat = () => {
       </div>
 
       {/* Input Area */}
-      <div className="bg-surface border border-gray-800 rounded-b-2xl p-4">
+      <div className="bg-white border border-slate-200 rounded-b-2xl p-4 shadow-sm z-10 relative">
         <form onSubmit={handleSendMessage} className="flex gap-2">
           <input
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Type a message..."
-            className="flex-1 bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+            className="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
           />
           <button
             type="submit"
             disabled={!text.trim()}
-            className="bg-primary hover:bg-blue-600 disabled:bg-gray-800 disabled:text-gray-500 text-white p-3 rounded-xl transition-colors flex items-center justify-center"
+            className="bg-primary hover:bg-blue-800 disabled:bg-slate-300 disabled:text-slate-500 text-white p-3 rounded-xl transition-all shadow-md hover:shadow-lg disabled:shadow-none flex items-center justify-center"
           >
             <Send className="w-5 h-5" />
           </button>
