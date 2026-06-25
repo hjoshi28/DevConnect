@@ -56,7 +56,7 @@ export const upsertProfile = async (req, res) => {
       profile = await Profile.findOneAndUpdate(
         { user: req.user._id },
         { $set: profileFields },
-        { new: true }
+        { returnDocument: 'after' }
       );
       return res.json(profile);
     }

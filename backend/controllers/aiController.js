@@ -24,7 +24,7 @@ export const uploadAndAnalyzeResume = async (req, res) => {
       const pdfData = await pdfParse(req.file.buffer);
       resumeText = pdfData.text;
     } catch (pdfError) {
-      console.warn('Could not parse PDF, using dummy text to trigger AI fallback.');
+      console.warn('Could not parse PDF:', pdfError);
       resumeText = 'Dummy text to ensure the AI fallback triggers properly.';
     }
 

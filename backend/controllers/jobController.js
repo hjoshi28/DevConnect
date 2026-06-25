@@ -99,7 +99,7 @@ export const updateJob = async (req, res) => {
     job = await Job.findByIdAndUpdate(
       req.params.id,
       { $set: updatedData },
-      { new: true }
+      { returnDocument: 'after' }
     );
 
     res.json(job);
