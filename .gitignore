@@ -24,12 +24,15 @@ frontend/.env
 
 # Build directories
 dist/
+dist-ssr/
 build/
 frontend/dist/
+frontend/dist-ssr/
 frontend/build/
 
 # Editor directories and files
 .vscode/
+!.vscode/extensions.json
 .idea/
 .DS_Store
 *.suo
