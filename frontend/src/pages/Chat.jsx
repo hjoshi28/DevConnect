@@ -46,7 +46,8 @@ const Chat = () => {
     // Setup Socket.io
     const SOCKET_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
     socketRef.current = io(SOCKET_URL, {
-      query: { userId: user._id }
+      query: { userId: user._id },
+      withCredentials: true
     });
 
     socketRef.current.on('newMessage', (newMessage) => {
